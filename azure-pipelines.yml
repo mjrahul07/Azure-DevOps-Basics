@@ -6,14 +6,10 @@
 trigger:
 - master
 
-stages:
-- stage: "buildStage"
-  jobs:
-  - job: "buildJob"
-    pool:
-      vmImage: ubuntu-latest
 
-    steps:
+pool:
+      vmImage: ubuntu-latest
+steps:
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'

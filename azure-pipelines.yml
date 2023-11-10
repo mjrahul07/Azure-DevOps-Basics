@@ -30,3 +30,12 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'testFile'
     publishLocation: 'Container'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial (397d7816-e0c4-4973-ac50-0a412d7a0d06)'
+    appType: 'webAppLinux'
+    WebAppName: 'PreTestEnvWebApp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
+
